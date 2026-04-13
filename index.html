@@ -349,6 +349,44 @@ section{padding:96px 5%;}
 .product-link:hover{gap:10px;}
 .arrow{font-size:16px;}
 
+.video-section{
+  padding:80px 5%;
+  background:linear-gradient(180deg,#FAFBFF 0%,#F4F8FF 100%);
+}
+
+.video-inner{
+  max-width:1000px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.video-text{
+  margin-bottom:40px;
+}
+
+.video-wrapper{
+  position:relative;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(79,157,255,0.2);
+}
+
+.video-wrapper video{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:28px;
+}
+.hero-deco {
+  z-index: 0;
+}
+
+.hero-visual,
+.hero-text {
+  position: relative;
+  z-index: 5;
+}
+
 /* ─── WHY CHOOSE US ──────────────────────── */
 .why{background:var(--white);}
 .why-inner{max-width:1100px;margin:0 auto;}
@@ -608,14 +646,7 @@ footer{
     </div>
   </div>
 
-  <div class="hero-visual">
-    <div class="floating-card">
-      <div class="fc-icon">📚</div>
-      <div class="fc-text">
-        <strong>200+ Activities</strong>
-        <span>Curriculum-aligned</span>
-      </div>
-    </div>
+  
     <div class="hero-img-wrap">
       <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80&fit=crop" alt="Children learning and reading"/>
       <div class="img-badge">
@@ -662,6 +693,24 @@ footer{
           <span>Parent Rating</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+<section class="video-section">
+  <div class="video-inner">
+    <div class="video-text">
+      <div class="section-tag tag-blue">See It In Action</div>
+      <h2 class="section-title">Learning That Feels Like Play</h2>
+      <p class="section-sub">
+        Watch how children engage with our books and activity kits — building confidence, creativity, and a genuine love for learning.
+      </p>
+    </div>
+
+    <div class="video-wrapper">
+      <video controls poster="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80">
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
 </section>
