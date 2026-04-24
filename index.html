@@ -270,28 +270,7 @@ nav.scrolled { box-shadow: 0 4px 32px rgba(26,31,46,0.08); }
 }
 
 /* Liquid glow blur orb */
-.hero::after{
-  content:"";
-  position:absolute;
 
-  width:520px;
-  height:520px;
-  right:-140px;
-  top:-120px;
-
-  border-radius:50%;
-
-  background:radial-gradient(
-    circle,
-    rgba(59,130,246,0.22) 0%,
-    rgba(125,211,252,0.12) 35%,
-    transparent 72%
-  );
-
-  filter:blur(50px);
-  pointer-events:none;
-  z-index:0;
-}
 
 /* Keep content above layers */
 .hero > *{
@@ -1286,7 +1265,7 @@ footer {
 
   background:
     linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0.08)),
-    url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80&fit=crop");
+    url("https://i.ibb.co/Xf26JBXq/222370.png");
 
   background-size:cover;
   background-position:center;
@@ -1299,7 +1278,139 @@ footer {
   transform:rotate(-8deg);
   z-index:0;
 }
+/* CLEAN PREMIUM HERO */
 
+.hero{
+  min-height:100vh;
+  padding:110px 5% 60px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:42px;
+  align-items:center;
+}
+
+.hero-title{
+  font-size:clamp(42px,6vw,68px);
+  line-height:0.96;
+  margin-bottom:18px;
+}
+
+.hero p{
+  font-size:16px;
+  line-height:1.8;
+  max-width:480px;
+  margin-bottom:28px;
+}
+
+.hero-main-btn{
+  display:inline-block;
+  padding:15px 30px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#2563eb,#38bdf8);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 16px 34px rgba(37,99,235,.22);
+}
+
+.hero-img-frame{
+  border-radius:34px;
+  overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,.12);
+}
+
+.hero-img-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero-badge,
+.hero-float-card,
+.hero-blob,
+.hero-shape{
+  display:none !important;
+}
+
+@media(max-width:768px){
+
+.hero{
+  grid-template-columns:1fr;
+  gap:24px;
+  padding:100px 4% 40px;
+}
+
+.hero-title{
+  font-size:clamp(44px,11vw,58px);
+}
+
+.hero-main-btn{
+  width:100%;
+  text-align:center;
+}
+
+}
+
+
+
+/*
+
+  /* FULL CORRECT PREMIUM WHATSAPP BUTTON */
+
+/* WhatsApp Floating Button */
+.whatsapp-float{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:999;
+
+  width:54px;
+  height:54px;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#25D366;
+  color:#fff;
+
+  font-size:24px;
+  text-decoration:none;
+
+  box-shadow:0 16px 34px rgba(37,211,102,.34);
+
+  transition:all .28s ease;
+}
+
+.whatsapp-float:hover{
+  transform:translateY(-4px) scale(1.08);
+  background:#20c55a;
+}
+
+@media(max-width:768px){
+  .whatsapp-float{
+    width:50px;
+    height:50px;
+    right:14px;
+    bottom:14px;
+    font-size:22px;
+  }
+}
+.whatsapp-float:hover{
+  transform:translateY(-4px) scale(1.08);
+  background:#20c55a;
+}
+
+@media(max-width:768px){
+  .whatsapp-float{
+    width:50px;
+    height:50px;
+    right:14px;
+    bottom:14px;
+    font-size:22px;
+  }
+}
 </style>
 </head>
 <body>
@@ -1335,51 +1446,30 @@ footer {
 
 <!-- ─── HERO ──────────────────────────────────────────────────── -->
 <section class="hero" id="home">
-  <div class="hero-blob blob-1"></div>
-  <div class="hero-blob blob-2"></div>
-  <div class="hero-blob blob-3"></div>
-  <div class="hero-shape hs1"></div>
-  <div class="hero-shape hs2"></div>
-  <div class="hero-shape hs3"></div>
 
   <div class="hero-text">
-  <div class="hero-eyebrow">
-    <span class="eyebrow-dot"></span>
-    <span id="eyebrowTyping"></span>
+
+    <div class="hero-eyebrow">
+      Zimbabwe's #1 Children's Learning Brand
+    </div>
+
+    <h1 class="hero-title">
+      Where Every Child<br>
+      Learns to <span class="line-gold">Love</span><br>
+      <span class="line-blue">Learning</span>
+    </h1>
+
+    <p>
+      Premium activity books designed to inspire curiosity,
+      build confidence, and make learning joyful for children aged 2 to 12.
+    </p>
+
+    <a href="#books" class="hero-main-btn">
+      Get Started →
+    </a>
+
   </div>
 
-  <h1 class="hero-title">
-    <span id="line1"></span><br>
-    <span id="line2"></span><br>
-    <span class="line-gold" id="line3"></span><br>
-    <span class="line-blue" id="line4"></span>
-  </h1>
-
-  <p>
-    Premium activity books designed to inspire curiosity, build confidence,
-    and make learning an adventure — for children aged 2 to 12.
-  </p>
-</div>
-
-  <div class="hero-visual">
-    <div class="hero-float-card">
-      <div class="fc-i"></div>
-      <div class="fc-t">
-        <strong>Award-Winning</strong>
-        <span>Educational Content</span>
-      </div>
-    </div>
-    <div class="hero-img-frame">
-      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&q=85&fit=crop" alt="Children learning and reading with joy"/>
-      <div class="hero-badge">
-        <div class="hb-icon"></div>
-        <div class="hb-text">
-          <strong>Loved by families</strong>
-          <span>across Zimbabwe & beyond</span>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
@@ -1388,8 +1478,7 @@ footer {
     <div class="about-img-col reveal">
       <div class="about-frame-ring"></div>
       <div class="about-chip">✏️ Est. 2019</div>
-      <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=700&q=85&fit=crop" alt="Child learning" class="about-main-img"/>
-      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=300&q=85&fit=crop" alt="Reading together" class="about-accent"/>
+      
     </div>
     <div class="about-text reveal reveal-d1">
       <div class="section-tag tag-gold">Who We Are</div>
@@ -1422,87 +1511,177 @@ footer {
 
   <div class="books-grid">
 
-    <!-- ── BUSY BOOK ── -->
-    <div class="book-card book-busy reveal reveal-d1">
-      <div class="book-slider" id="slider-busy">
-        <!-- Images: swap these URLs to update the Busy Book slider -->
-        <div class="book-slide active"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&fit=crop" alt="Busy Book 1"/></div>
-        <div class="book-slide"><img src="https://images.unsplash.com/photo-1560785496-3c9d27877182?w=600&q=80&fit=crop" alt="Busy Book 2"/></div>
-        <div class="book-slide"><img src="https://images.unsplash.com/photo-1471286174890-9c112ac6a428?w=600&q=80&fit=crop" alt="Busy Book 3"/></div>
-        <div class="slider-overlay"></div>
-        <div class="busy-tag"> Best Seller</div>
-        <div class="slider-dots" id="dots-busy"></div>
-      </div>
-      <div class="book-busy-body">
-        <div class="book-price">$12</div>
-        <h3>Busy Book</h3>
-        <p>Keeps little hands busy while building concentration, patience, and independence. Instead of screen time, your child is thinking, solving, and growing.</p>
-        <div class="book-features">
-          <span class="bf-tag">🧩 Problem Solving</span>
-          <span class="bf-tag">✋ Fine Motor</span>
-          <span class="bf-tag">🎨 Creativity</span>
-          <span class="bf-tag">🕐 Focus</span>
-        </div>
-        <div class="book-cta">
-          <a href="#contact" class="book-link">Order Now →</a>
-          <div class="busy-icon"></div>
-        </div>
-      </div>
+   <!-- ── BUSY BOOK ── -->
+<div class="book-card book-busy reveal reveal-d1">
+  <div class="book-slider" id="slider-busy">
+
+    <!-- Real Busy Book Images -->
+    <div class="book-slide active">
+      <img src="https://i.ibb.co/9H2zTWnh/Picsart-26-04-24-12-29-53-283.png" alt="Busy Book 1"/>
     </div>
+
+    <div class="book-slide">
+      <img src="https://i.ibb.co/gbQWYCWj/Picsart-26-04-24-12-30-20-201.png" alt="Busy Book 2"/>
+    </div>
+
+    <div class="book-slide">
+      <img src="https://i.ibb.co/yFVs5b7j/Picsart-26-04-24-12-30-50-959.png" alt="Busy Book 3"/>
+    </div>
+
+    <div class="slider-overlay"></div>
+
+    <div class="busy-tag">Best Seller</div>
+
+    <div class="slider-dots" id="dots-busy"></div>
+  </div>
+
+  <div class="book-busy-body">
+    <div class="book-price">$12</div>
+
+    <h3>Busy Book</h3>
+
+    <p>
+      Keeps little hands busy while building concentration,
+      patience, and independence. Instead of screen time,
+      your child is thinking, solving, and growing.
+    </p>
+
+    <div class="book-features">
+      <span class="bf-tag">Problem Solving</span>
+      <span class="bf-tag">Fine Motor</span>
+      <span class="bf-tag">Creativity</span>
+      <span class="bf-tag">Focus</span>
+    </div>
+
+    <div class="book-cta">
+      <a href="#contact" class="book-link">Order Now →</a>
+      <div class="busy-icon"></div>
+    </div>
+  </div>
+</div>
 
     <!-- ── SKILL BOOK ── -->
-    <div class="book-card book-skill reveal reveal-d2">
-      <div class="book-slider" id="slider-skill">
-        <!-- Images: swap these URLs to update the Skill Book slider -->
-        <div class="book-slide active"><img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&q=80&fit=crop" alt="Skill Book 1"/></div>
-        <div class="book-slide"><img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&q=80&fit=crop" alt="Skill Book 2"/></div>
-        <div class="book-slide"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80&fit=crop" alt="Skill Book 3"/></div>
-        <div class="slider-overlay"></div>
-        <div class="skill-tag"> Curriculum Aligned</div>
-        <div class="slider-dots" id="dots-skill"></div>
+<div class="book-card book-skill reveal reveal-d2">
+  <div class="book-slider" id="slider-skill">
+
+    <!-- Real Skill Book Images -->
+    <div class="book-slide active">
+      <img src="https://i.ibb.co/KpcJbphM/Picsart-26-04-24-12-37-38-118.png" alt="Skill Book 1"/>
+    </div>
+
+    <div class="book-slide">
+      <img src="https://i.ibb.co/p6Rzxs0h/Picsart-26-04-24-12-37-01-799.png" alt="Skill Book 2"/>
+    </div>
+
+    <div class="book-slide">
+      <img src="https://i.ibb.co/KpcJbphM/Picsart-26-04-24-12-37-38-118.png" alt="Skill Book 3"/>
+    </div>
+
+    <div class="slider-overlay"></div>
+
+    <div class="skill-tag">Curriculum Aligned</div>
+
+    <div class="slider-dots" id="dots-skill"></div>
+  </div>
+
+  <div class="book-skill-body">
+    <strong class="book-price">$12</strong>
+
+    <span class="book-price-note">
+      One-time investment. Lifelong skills.
+    </span>
+
+    <h3>Children's Activity Books</h3>
+
+    <p>
+      Builds the foundation your child needs —
+      before school and during it.
+      Every exercise is intentional.
+      Every page has purpose.
+    </p>
+
+    <div class="skill-milestones">
+
+      <div class="sm-item">
+        <div class="sm-check">✓</div>
+        <span>Fine motor skills for writing</span>
       </div>
-      <div class="book-skill-body">
-        <strong class="book-price">$12</strong>
-        <span class="book-price-note">One-time investment. Lifelong skills.</span>
-        <h3>Skill Book</h3>
-        <p>Builds the foundation your child needs — before school and during it. Every exercise is intentional. Every page has purpose.</p>
-        <div class="skill-milestones">
-          <div class="sm-item"><div class="sm-check">✓</div><span>Fine motor skills for writing</span></div>
-          <div class="sm-item"><div class="sm-check">✓</div><span>Early thinking for school readiness</span></div>
-          <div class="sm-item"><div class="sm-check">✓</div><span>Confidence through achievement</span></div>
-        </div>
-        <a href="#contact" class="book-link">Order Now →</a>
+
+      <div class="sm-item">
+        <div class="sm-check">✓</div>
+        <span>Early thinking for school readiness</span>
+      </div>
+
+      <div class="sm-item">
+        <div class="sm-check">✓</div>
+        <span>Confidence through achievement</span>
+      </div>
+
+    </div>
+
+    <a href="#contact" class="book-link" style="color:#2563eb;">Order Now →</a>
+  </div>
+</div>
+   <!-- ── LANGUAGE BOOK ── -->
+<div class="book-card book-lang reveal reveal-d3">
+  <div class="book-slider" id="slider-lang">
+
+    <!-- Real Images -->
+    <div class="book-slide active">
+      <img src="https://i.ibb.co/KpK2qM03/Picsart-26-04-24-12-14-16-050.png" alt="Language Book 1"/>
+    </div>
+
+    <div class="book-slide">
+      <img src="https://i.ibb.co/Nn9yhP78/Picsart-26-04-24-12-14-57-546.png" alt="Language Book 2"/>
+    </div>
+
+    <div class="book-slide">
+      <img src="https://i.ibb.co/cSY6FGg7/image.jpg" alt="Language Book 3"/>
+    </div>
+
+    <div class="slider-overlay"></div>
+
+    <div class="lang-tag">Heritage Edition</div>
+
+    <div class="lang-langs">
+      <span class="lang-pill">Ndebele</span>
+      <span class="lang-pill">Shona</span>
+    </div>
+
+    <div class="slider-dots" id="dots-lang"></div>
+  </div>
+
+  <div class="book-lang-body">
+    <strong class="book-price">$12</strong>
+    <span class="book-price-note">Available in Ndebele &amp; Shona</span>
+
+    <h3>Language Book</h3>
+
+    <p>
+      This is identity. This is confidence in their mother tongue.
+      Your child learns to speak, read, and understand their language with pride.
+    </p>
+
+    <div class="lang-identity-box">
+      <div class="lib-line">
+        <div class="lib-dot"></div>
+        <span>Preserving culture while building skills</span>
+      </div>
+
+      <div class="lib-line">
+        <div class="lib-dot"></div>
+        <span>Strong communication foundations</span>
+      </div>
+
+      <div class="lib-line">
+        <div class="lib-dot"></div>
+        <span>Pride in African identity</span>
       </div>
     </div>
 
-    <!-- ── LANGUAGE BOOK ── -->
-    <div class="book-card book-lang reveal reveal-d3">
-      <div class="book-slider" id="slider-lang">
-        <!-- Images: swap these URLs to update the Language Book slider -->
-        <div class="book-slide active"><img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&q=80&fit=crop" alt="Language Book 1"/></div>
-        <div class="book-slide"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&fit=crop&crop=left" alt="Language Book 2"/></div>
-        <div class="book-slide"><img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&q=80&fit=crop" alt="Language Book 3"/></div>
-        <div class="slider-overlay"></div>
-        <div class="lang-tag"> Heritage Edition</div>
-        <div class="lang-langs">
-          <span class="lang-pill">Ndebele</span>
-          <span class="lang-pill">Shona</span>
-        </div>
-        <div class="slider-dots" id="dots-lang"></div>
-      </div>
-      <div class="book-lang-body">
-        <strong class="book-price">$12</strong>
-        <span class="book-price-note">Available in Ndebele &amp; Shona</span>
-        <h3>Language Book</h3>
-        <p>This is identity. This is confidence in their mother tongue. Your child learns to speak, read, and understand their language with pride.</p>
-        <div class="lang-identity-box">
-          <div class="lib-line"><div class="lib-dot"></div><span>Preserving culture while building skills</span></div>
-          <div class="lib-line"><div class="lib-dot"></div><span>Strong communication foundations</span></div>
-          <div class="lib-line"><div class="lib-dot"></div><span>Pride in African identity</span></div>
-        </div>
-        <a href="#contact" class="book-link">Order Now →</a>
-      </div>
-    </div>
+    <a href="#contact" class="book-link">Order Now →</a>
+  </div>
+</div>
 
   </div>
 </section>
@@ -1550,32 +1729,41 @@ footer {
       <div class="spb-stat"><strong>100%</strong><span>Parent Approved</span></div>
     </div>
 
-    <!-- Gallery -->
-    <div class="explore-gallery-section reveal">
-      <div class="eg-header">
-        <h3>Learning Moments Gallery</h3>
-        <p>A glimpse into the joy our books create every single day</p>
-      </div>
-      <div class="explore-gallery">
-        <!-- Gallery images: swap URLs as needed -->
-        <div class="eg-item spancol">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80&fit=crop" alt="Learning moment"/>
-          <div class="eg-item-overlay"></div>
-        </div>
-        <div class="eg-item span2">
-          <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=700&q=80&fit=crop" alt="Learning moment"/>
-          <div class="eg-item-overlay"></div>
-        </div>
-        <div class="eg-item">
-          <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=400&q=80&fit=crop" alt="Learning moment"/>
-          <div class="eg-item-overlay"></div>
-        </div>
-        <div class="eg-item">
-          <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=400&q=80&fit=crop" alt="Learning moment"/>
-          <div class="eg-item-overlay"></div>
-        </div>
-      </div>
+   <!-- Gallery -->
+<div class="explore-gallery-section reveal">
+  <div class="eg-header">
+    <h3>Learning Moments Gallery</h3>
+    <p>A glimpse into the joy our books create every single day</p>
+  </div>
+
+  <div class="explore-gallery">
+
+    <!-- Large Vertical -->
+    <div class="eg-item spancol">
+      <img src="https://i.ibb.co/5gLzWcjs/pic1.jpg" alt="Learning moment"/>
+      <div class="eg-item-overlay"></div>
     </div>
+
+    <!-- Wide Main -->
+    <div class="eg-item span2">
+      <img src="https://i.ibb.co/7Jx7SFrD/pc2.jpg" alt="Learning moment"/>
+      <div class="eg-item-overlay"></div>
+    </div>
+
+    <!-- Small Card -->
+    <div class="eg-item">
+      <img src="https://i.ibb.co/Z6yY5ytq/pic3.jpg" alt="Learning moment"/>
+      <div class="eg-item-overlay"></div>
+    </div>
+
+    <!-- Repeat Best Image for balance -->
+    <div class="eg-item">
+      <img src="https://i.ibb.co/7Jx7SFrD/pc2.jpg" alt="Learning moment"/>
+      <div class="eg-item-overlay"></div>
+    </div>
+
+  </div>
+</div>
 
     <!-- Testimonials -->
     <div class="explore-testimonials reveal">
@@ -1701,42 +1889,76 @@ footer {
 <!-- ─── CONTACT ────────────────────────────────────────────────── -->
 <section class="contact" id="contact">
   <div class="contact-inner">
+
     <div>
       <div class="section-tag tag-coral reveal">Get In Touch</div>
-      <h2 class="section-title reveal">We'd Love to<br>Hear From <em class="hi">You</em></h2>
-      <p class="section-sub reveal">Have a question about our books, a school order, or just want to say hello? We are always happy to connect with families and educators.</p>
+
+      <h2 class="section-title reveal">
+        We'd Love to<br>Hear From <em class="hi">You</em>
+      </h2>
+
+      <p class="section-sub reveal">
+        Have a question about our books, a school order, or just want to say hello?
+        We are always happy to connect with families and educators.
+      </p>
 
       <div style="margin-top:40px;">
+
+        <!-- Location -->
         <div class="contact-detail reveal">
-          <div class="cd-icon cdi-gold"></div>
+          <div class="cd-icon cdi-gold">📍</div>
           <div class="cd-text">
             <strong>Our Locations</strong>
             <span>Harare &amp; Bulawayo, Zimbabwe</span>
           </div>
         </div>
+
+        <!-- Phone / WhatsApp -->
         <div class="contact-detail reveal reveal-d1">
-          <div class="cd-icon cdi-blue"></div>
+          <div class="cd-icon cdi-blue">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:22px;height:22px;">
+          </div>
+
           <div class="cd-text">
             <strong>Phone / WhatsApp</strong>
-            <span>+263 77 123 4567</span>
+
+            <a href="https://wa.me/263717235460"
+               target="_blank"
+               style="color:#2563eb;text-decoration:none;font-weight:700;">
+              263717235460
+            </a>
           </div>
         </div>
+
+        <!-- Email -->
         <div class="contact-detail reveal reveal-d2">
           <div class="cd-icon cdi-teal">✉️</div>
+
           <div class="cd-text">
             <strong>Email</strong>
-            <span>hello@funlearningacademy.co.zw</span>
+
+            <a href="mailto:hello@funlearningacademy.co.zw"
+               style="color:#2563eb;text-decoration:none;font-weight:700;">
+              hello@funlearningacademy.co.zw
+            </a>
           </div>
         </div>
+
+        <!-- Hours -->
         <div class="contact-detail reveal reveal-d3">
           <div class="cd-icon cdi-gold">🕐</div>
+
           <div class="cd-text">
             <strong>Business Hours</strong>
             <span>Mon – Fri, 8:00am – 5:00pm</span>
           </div>
         </div>
+
       </div>
     </div>
+
+  </div>
+</section>
 
     <div class="contact-form reveal reveal-d1">
       <div class="cf-head">
@@ -1970,6 +2192,17 @@ function startTyping(){
 window.addEventListener("load", () => {
   setTimeout(startTyping, 500);
 });
+
 </script>
+<!-- WhatsApp Floating Button -->
+<!-- WhatsApp Floating Button -->
+<!-- Proper WhatsApp Icon Button -->
+<a href="https://wa.me/263717235460" target="_blank" class="whatsapp-float" aria-label="WhatsApp Chat">
+  <img 
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp"
+    class="wa-img"
+  >
+</a>
 </body>
 </html>
