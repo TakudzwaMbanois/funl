@@ -8,36 +8,32 @@
 <style>
 /* ─── TOKENS ─────────────────────────────────────────────────── */
 :root {
-  --gold:       #C9913A;
-  --gold-light: #F5DFB3;
-  --gold-pale:  #FDF6EA;
-  --blue:       #2A6FD6;
-  --blue-light: #E8F1FC;
-  --blue-vivid: #3D8EFF;
-  --teal:       #2ABFA3;
-  --teal-light: #E6F9F5;
-  --coral:      #E85D4A;
-  --coral-light:#FCECEA;
-  --sage:       #5A8A6A;
-  --sage-light: #EAF2EB;
-  --ivory:      #FDFAF5;
-  --cream:      #F7F3EC;
-  --text:       #1A1F2E;
-  --text-mid:   #3D4557;
-  --text-muted: #6B7A99;
-  --white:      #FFFFFF;
-  --radius-sm:  10px;
-  --radius-md:  18px;
-  --radius-lg:  26px;
-  --radius-xl:  40px;
-  --shadow-xs:  0 2px 10px rgba(26,31,46,0.06);
-  --shadow-sm:  0 4px 20px rgba(26,31,46,0.08);
-  --shadow-md:  0 10px 40px rgba(26,31,46,0.10);
-  --shadow-lg:  0 24px 64px rgba(26,31,46,0.14);
-  --shadow-xl:  0 40px 80px rgba(26,31,46,0.18);
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans:  'Plus Jakarta Sans', sans-serif;
-  --font-fun:   'Baloo 2', cursive;
+  --blue-sky:       #3B82F6;
+  --blue-sky-light: #DBEAFE;
+  --blue-sky-pale:  #EFF6FF;
+  --blue-deep:      #1E3A8A;
+  --blue-ocean:     #2563EB;
+  --blue-vivid:     #3D8EFF;
+  --teal:           #14B8A6;
+  --teal-light:     #CCFBF1;
+  --ivory:          #FDFAF5;
+  --cream:          #F7F3EC;
+  --text:           #1A1F2E;
+  --text-mid:       #3D4557;
+  --text-muted:     #6B7A99;
+  --white:          #FFFFFF;
+  --radius-sm:      10px;
+  --radius-md:      18px;
+  --radius-lg:      26px;
+  --radius-xl:      40px;
+  --shadow-xs:      0 2px 10px rgba(26,31,46,0.06);
+  --shadow-sm:      0 4px 20px rgba(26,31,46,0.08);
+  --shadow-md:      0 10px 40px rgba(26,31,46,0.10);
+  --shadow-lg:      0 24px 64px rgba(26,31,46,0.14);
+  --shadow-xl:      0 40px 80px rgba(26,31,46,0.18);
+  --font-serif:     'Playfair Display', Georgia, serif;
+  --font-sans:      'Plus Jakarta Sans', sans-serif;
+  --font-fun:       'Baloo 2', cursive;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -103,7 +99,7 @@ nav {
   padding: 0 5%;
   height: 70px;
   display: flex; align-items: center; justify-content: space-between;
-  background: rgba(253,250,245,0.88);
+  background: rgba(218, 207, 139, 0.78);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-bottom: 1px solid rgba(201,145,58,0.12);
@@ -160,23 +156,57 @@ nav.scrolled { box-shadow: 0 4px 32px rgba(26,31,46,0.08); }
 }
 .hamburger span {
   display: block; width: 20px; height: 2px;
-  background: var(--gold); border-radius: 4px;
+  background: var(--blue-sky); border-radius: 4px;
   transition: all 0.3s;
 }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu{
+  display:none;
+  position:fixed;
+  top:70px;
+  left:0;
+  right:0;
+  z-index:989;
 
-.mobile-menu {
-  display: none;
-  position: fixed; top: 70px; left: 0; right: 0; z-index: 989;
-  background: rgba(253,250,245,0.98);
-  backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(201,145,58,0.12);
-  padding: 20px 5% 28px;
-  transform: translateY(-8px); opacity: 0;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-  pointer-events: none;
+  /* Liquid Glass Background */
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,0.16),
+    rgba(255,255,255,0.08),
+    rgba(80,140,255,0.10)
+  );
+
+  backdrop-filter:blur(28px) saturate(180%);
+  -webkit-backdrop-filter:blur(28px) saturate(180%);
+
+  /* Glass Border */
+  border-bottom:1px solid rgba(255,255,255,0.18);
+  border-top:1px solid rgba(255,255,255,0.10);
+
+  /* Premium Depth */
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    inset 0 -1px 0 rgba(255,255,255,0.06);
+
+  padding:20px 5% 28px;
+
+  transform:translateY(-12px) scale(0.98);
+  opacity:0;
+  pointer-events:none;
+
+  transition:
+    opacity .35s ease,
+    transform .35s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Open State */
+.mobile-menu.open{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0) scale(1);
 }
 .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: all; }
 .mobile-menu a {
@@ -190,17 +220,84 @@ nav.scrolled { box-shadow: 0 4px 32px rgba(26,31,46,0.08); }
   text-align: center; margin-top: 10px; font-weight: 700;
   border-radius: 50px;
 }
+/* ─── HERO PREMIUM SKY GLASS UPGRADE ───────────────────────── */
 
-/* ─── HERO ───────────────────────────────────────────────────── */
-.hero {
-  min-height: 100vh;
-  padding: 110px 5% 80px;
-  background: linear-gradient(145deg, #FDF8F0 0%, #F5F0E8 30%, #EDF5FF 65%, #F0FAF7 100%);
-  position: relative; overflow: hidden;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: center;
+.hero{
+  min-height:100vh;
+  padding:110px 5% 80px;
+
+  position:relative;
+  overflow:hidden;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+
+  /* Beautiful Luxury Background */
+  background:
+    radial-gradient(circle at 15% 20%, rgba(125,211,252,0.35) 0%, transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(96,165,250,0.28) 0%, transparent 30%),
+    radial-gradient(circle at 78% 72%, rgba(59,130,246,0.22) 0%, transparent 32%),
+    radial-gradient(circle at 25% 85%, rgba(186,230,253,0.30) 0%, transparent 26%),
+
+    linear-gradient(
+      135deg,
+      #f8fbff 0%,
+      #eef6ff 24%,
+      #dcecff 52%,
+      #cfe5ff 72%,
+      #f7fbff 100%
+    );
 }
 
+/* Floating light layer */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,0.42),
+      rgba(255,255,255,0.08),
+      transparent 60%
+    );
+
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Liquid glow blur orb */
+.hero::after{
+  content:"";
+  position:absolute;
+
+  width:520px;
+  height:520px;
+  right:-140px;
+  top:-120px;
+
+  border-radius:50%;
+
+  background:radial-gradient(
+    circle,
+    rgba(59,130,246,0.22) 0%,
+    rgba(125,211,252,0.12) 35%,
+    transparent 72%
+  );
+
+  filter:blur(50px);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Keep content above layers */
+.hero > *{
+  position:relative;
+  z-index:2;
+}
 /* Decorative blobs */
 .hero-blob {
   position: absolute; border-radius: 50%;
@@ -455,6 +552,23 @@ nav.scrolled { box-shadow: 0 4px 32px rgba(26,31,46,0.08); }
   background: linear-gradient(180deg, var(--cream) 0%, var(--ivory) 100%);
   position: relative; overflow: hidden;
 }
+.hero-title span,
+.hero-eyebrow span{
+  min-height:1.2em;
+  display:inline-block;
+}
+
+.typing::after{
+  content:"|";
+  margin-left:3px;
+  animation:blink .7s infinite;
+  color:#3B82F6;
+}
+
+@keyframes blink{
+  0%,50%{opacity:1;}
+  51%,100%{opacity:0;}
+}
 .books::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 1px;
@@ -493,6 +607,10 @@ nav.scrolled { box-shadow: 0 4px 32px rgba(26,31,46,0.08); }
   position: relative;
   width: 100%; height: 270px;
   overflow: hidden;
+}
+#line3{
+  font-size:1.08em;
+  letter-spacing:-1px;
 }
 .book-slide {
   position: absolute; inset: 0;
@@ -749,6 +867,21 @@ nav.scrolled { box-shadow: 0 4px 32px rgba(26,31,46,0.08); }
 .ev-side {
   display: flex; flex-direction: column; gap: 24px;
 }
+
+.line-gold{
+  background:linear-gradient(
+    135deg,
+    #2563eb 0%,
+    #38bdf8 45%,
+    #1d4ed8 100%
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+
+  text-shadow:0 8px 24px rgba(37,99,235,0.18);
+}
 .ev-thumb {
   flex: 1; border-radius: var(--radius-md);
   overflow: hidden; position: relative;
@@ -764,6 +897,7 @@ nav.scrolled { box-shadow: 0 4px 32px rgba(26,31,46,0.08); }
 }
 .etp-icon { font-size: 36px; }
 .etp-text { font-size: 13px; font-weight: 600; }
+
 
 /* Gallery */
 .explore-gallery-section { margin-bottom: 64px; }
@@ -1079,6 +1213,93 @@ footer {
   nav { padding: 0 4%; }
   .explore-gallery { grid-template-columns: 1fr; }
 }
+/* FIX LOVE WORD VISIBILITY + HERO TYPING PERFECTLY */
+
+.hero-title{
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: clamp(38px,5vw,64px);
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 22px;
+}
+
+/* each typed line */
+.hero-title span{
+  display:inline-block;
+  min-height:1.15em;
+}
+
+/* LOVE word */
+#line3,
+.line-gold{
+  font-style: italic;
+  font-weight: 900;
+
+  background: linear-gradient(
+    135deg,
+    #0f4cff 0%,
+    #38bdf8 45%,
+    #1d4ed8 100%
+  );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 8px 24px rgba(37,99,235,0.18);
+
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+/* LEARNING word */
+#line4,
+.line-blue{
+  color:#1e40af !important;
+  font-weight:900;
+}
+
+/* cursor */
+.typing::after{
+  content:"|";
+  margin-left:4px;
+  color:#2563eb;
+  animation:blink .7s infinite;
+}
+
+@keyframes blink{
+  0%,50%{opacity:1;}
+  51%,100%{opacity:0;}
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  right:4%;
+  top:18%;
+
+  width:280px;
+  height:360px;
+
+  border-radius:28px;
+
+  background:
+    linear-gradient(rgba(255,255,255,0.18), rgba(255,255,255,0.08)),
+    url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80&fit=crop");
+
+  background-size:cover;
+  background-position:center;
+
+  opacity:0.32;
+  filter:blur(2px);
+
+  box-shadow:0 30px 60px rgba(59,130,246,0.10);
+
+  transform:rotate(-8deg);
+  z-index:0;
+}
+
 </style>
 </head>
 <body>
@@ -1086,7 +1307,7 @@ footer {
 <!-- ─── NAV ──────────────────────────────────────────────────── -->
 <nav id="navbar">
   <a href="#home" class="nav-logo">
-    <div class="nav-logo-mark">✨</div>
+    <div class="nav-logo-mark">F</div>
     <span>Fun Learning</span>&nbsp;Academy
   </a>
   <ul class="nav-links">
@@ -1122,31 +1343,27 @@ footer {
   <div class="hero-shape hs3"></div>
 
   <div class="hero-text">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-dot"></span>
-      Zimbabwe's #1 Children's Learning Brand
-    </div>
-    <h1>
-      Where Every Child<br>
-      Learns to <span class="line-gold">Love</span><br>
-      <span class="line-blue">Learning</span>
-    </h1>
-    <p>Premium activity books designed to inspire curiosity, build confidence, and make learning an adventure — for children aged 2 to 12.</p>
-    <div class="hero-btns">
-      <a href="#books"   class="btn btn-gold">Explore Our Books ✨</a>
-      <a href="#about"   class="btn btn-outline">Our Story →</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hs-item"><strong>5K+</strong><span>Happy Families</span></div>
-      <div class="hs-item"><strong>60+</strong><span>Products</span></div>
-      <div class="hs-item"><strong>4.9★</strong><span>Parent Rating</span></div>
-      <div class="hs-item"><strong>$12</strong><span>Per Book</span></div>
-    </div>
+  <div class="hero-eyebrow">
+    <span class="eyebrow-dot"></span>
+    <span id="eyebrowTyping"></span>
   </div>
+
+  <h1 class="hero-title">
+    <span id="line1"></span><br>
+    <span id="line2"></span><br>
+    <span class="line-gold" id="line3"></span><br>
+    <span class="line-blue" id="line4"></span>
+  </h1>
+
+  <p>
+    Premium activity books designed to inspire curiosity, build confidence,
+    and make learning an adventure — for children aged 2 to 12.
+  </p>
+</div>
 
   <div class="hero-visual">
     <div class="hero-float-card">
-      <div class="fc-i">🏆</div>
+      <div class="fc-i"></div>
       <div class="fc-t">
         <strong>Award-Winning</strong>
         <span>Educational Content</span>
@@ -1155,7 +1372,7 @@ footer {
     <div class="hero-img-frame">
       <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&q=85&fit=crop" alt="Children learning and reading with joy"/>
       <div class="hero-badge">
-        <div class="hb-icon">🌟</div>
+        <div class="hb-icon"></div>
         <div class="hb-text">
           <strong>Loved by families</strong>
           <span>across Zimbabwe & beyond</span>
@@ -1213,7 +1430,7 @@ footer {
         <div class="book-slide"><img src="https://images.unsplash.com/photo-1560785496-3c9d27877182?w=600&q=80&fit=crop" alt="Busy Book 2"/></div>
         <div class="book-slide"><img src="https://images.unsplash.com/photo-1471286174890-9c112ac6a428?w=600&q=80&fit=crop" alt="Busy Book 3"/></div>
         <div class="slider-overlay"></div>
-        <div class="busy-tag">🔥 Best Seller</div>
+        <div class="busy-tag"> Best Seller</div>
         <div class="slider-dots" id="dots-busy"></div>
       </div>
       <div class="book-busy-body">
@@ -1228,7 +1445,7 @@ footer {
         </div>
         <div class="book-cta">
           <a href="#contact" class="book-link">Order Now →</a>
-          <div class="busy-icon">🎉</div>
+          <div class="busy-icon"></div>
         </div>
       </div>
     </div>
@@ -1241,7 +1458,7 @@ footer {
         <div class="book-slide"><img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&q=80&fit=crop" alt="Skill Book 2"/></div>
         <div class="book-slide"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80&fit=crop" alt="Skill Book 3"/></div>
         <div class="slider-overlay"></div>
-        <div class="skill-tag">📚 Curriculum Aligned</div>
+        <div class="skill-tag"> Curriculum Aligned</div>
         <div class="slider-dots" id="dots-skill"></div>
       </div>
       <div class="book-skill-body">
@@ -1266,7 +1483,7 @@ footer {
         <div class="book-slide"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80&fit=crop&crop=left" alt="Language Book 2"/></div>
         <div class="book-slide"><img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&q=80&fit=crop" alt="Language Book 3"/></div>
         <div class="slider-overlay"></div>
-        <div class="lang-tag">🌍 Heritage Edition</div>
+        <div class="lang-tag"> Heritage Edition</div>
         <div class="lang-langs">
           <span class="lang-pill">Ndebele</span>
           <span class="lang-pill">Shona</span>
@@ -1300,35 +1517,25 @@ footer {
     </div>
 
     <!-- Videos -->
-    <div class="explore-videos reveal">
-      <div class="ev-main">
-        <video autoplay muted loop playsinline style="width:100%;height:380px;object-fit:cover;display:block;">
-          <source src="https://ik.imagekit.io/dkob1xnec/AQOL9YDI6ktWiOMswInZZb22OBzW2niXbq1UR9uhrFr_BpHXSv9AIRkMdEETqiCMqnMk0ggjEPfS6wXpTxUV-0vCZ0SCVE96gUA6a0wHo8Jzmw.mp4" type="video/mp4">
-        </video>
-        <div class="ev-overlay">
-          <div class="ev-label">
-            <strong>See Learning in Action</strong>
-            <span>Real children. Real growth.</span>
-          </div>
-        </div>
-      </div>
-      <div class="ev-side">
-        <div class="ev-thumb">
-          <div class="ev-thumb-placeholder">
-            <!-- Replace this div with an <img> or <video> tag for your second video -->
-            <div class="etp-icon">🎬</div>
-            <div class="etp-text">Your Video Here</div>
-          </div>
-        </div>
-        <div class="ev-thumb">
-          <div class="ev-thumb-placeholder">
-            <!-- Replace this div with an <img> or <video> tag for your third video -->
-            <div class="etp-icon">🎥</div>
-            <div class="etp-text">Your Video Here</div>
-          </div>
-        </div>
+   <div class="explore-videos reveal">
+
+  <!-- MAIN VIDEO -->
+  <div class="ev-main">
+    <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
+      <source src="https://ik.imagekit.io/dkob1xnec/AQOL9YDI6ktWiOMswInZZb22OBzW2niXbq1UR9uhrFr_BpHXSv9AIRkMdEETqiCMqnMk0ggjEPfS6wXpTxUV-0vCZ0SCVE96gUA6a0wHo8Jzmw.mp4" type="video/mp4">
+    </video>
+
+    <div class="ev-overlay">
+      <div class="ev-label">
+        <strong>See Learning in Action</strong>
+        <span>Real children. Real growth.</span>
       </div>
     </div>
+  </div>
+   
+
+  
+  
 
     <!-- Social Proof Bar -->
     <div class="social-proof-bar reveal">
@@ -1468,22 +1675,22 @@ footer {
     </div>
     <div class="why-grid">
       <div class="why-card reveal reveal-d1">
-        <div class="wc-icon wci-gold">🎨</div>
+        <div class="wc-icon wci-gold"></div>
         <h3>Premium Quality Design</h3>
         <p>Every product is beautifully illustrated and printed on high-quality, child-safe materials. We believe learning resources should feel as good as they work — because they deserve the best.</p>
       </div>
       <div class="why-card reveal reveal-d2">
-        <div class="wc-icon wci-blue">🧠</div>
+        <div class="wc-icon wci-blue"></div>
         <h3>Child Development Focus</h3>
         <p>Developed with educators and child psychologists, our resources support cognitive, social, and emotional milestones at every age stage — aligned with both school and home learning.</p>
       </div>
       <div class="why-card reveal reveal-d3">
-        <div class="wc-icon wci-teal">🛡️</div>
+        <div class="wc-icon wci-teal"></div>
         <h3>Trusted by Thousands</h3>
         <p>With over 5,000 families across Zimbabwe trusting our brand, we hold ourselves to the highest standards of safety, accuracy, and educational integrity in every single product.</p>
       </div>
       <div class="why-card reveal reveal-d4">
-        <div class="wc-icon wci-coral">🌍</div>
+        <div class="wc-icon wci-coral"></div>
         <h3>Made for Our Children</h3>
         <p>Our books reflect African stories, faces, and contexts — giving Zimbabwean children the gift of seeing themselves in what they learn. Representation isn't a feature. It's who we are.</p>
       </div>
@@ -1501,14 +1708,14 @@ footer {
 
       <div style="margin-top:40px;">
         <div class="contact-detail reveal">
-          <div class="cd-icon cdi-gold">📍</div>
+          <div class="cd-icon cdi-gold"></div>
           <div class="cd-text">
             <strong>Our Locations</strong>
             <span>Harare &amp; Bulawayo, Zimbabwe</span>
           </div>
         </div>
         <div class="contact-detail reveal reveal-d1">
-          <div class="cd-icon cdi-blue">📞</div>
+          <div class="cd-icon cdi-blue"></div>
           <div class="cd-text">
             <strong>Phone / WhatsApp</strong>
             <span>+263 77 123 4567</span>
@@ -1571,7 +1778,7 @@ footer {
         <label>Your Message</label>
         <textarea placeholder="Tell us a bit about what you need…"></textarea>
       </div>
-      <button class="btn-submit" onclick="handleSubmit(event)">Send Message ✨</button>
+      <button class="btn-submit" onclick="handleSubmit(event)">Send Message </button>
     </div>
   </div>
 </section>
@@ -1719,6 +1926,49 @@ document.querySelectorAll('select').forEach(s => {
   s.style.backgroundPosition = 'right 14px center';
   s.style.paddingRight       = '40px';
   s.style.cursor             = 'pointer';
+});
+
+
+</script>
+<script>
+const typingData = [
+  {id:"eyebrowTyping", text:"Zimbabwe's #1 Children's Learning Brand"},
+  {id:"line1", text:"Where Every Child"},
+  {id:"line2", text:"Learns to"},
+  {id:"line3", text:"Love"},
+  {id:"line4", text:"Learning"}
+];
+
+let current = 0;
+
+function typeLine(el, text, speed = 45, callback){
+  let i = 0;
+  el.classList.add("typing");
+
+  const timer = setInterval(() => {
+    el.textContent = text.slice(0, i++);
+    if(i > text.length){
+      clearInterval(timer);
+      el.classList.remove("typing");
+      if(callback) setTimeout(callback, 220);
+    }
+  }, speed);
+}
+
+function startTyping(){
+  if(current >= typingData.length) return;
+
+  const item = typingData[current];
+  const el = document.getElementById(item.id);
+
+  typeLine(el, item.text, 42, () => {
+    current++;
+    startTyping();
+  });
+}
+
+window.addEventListener("load", () => {
+  setTimeout(startTyping, 500);
 });
 </script>
 </body>
