@@ -1351,6 +1351,91 @@ footer {
 
 }
 
+.gallery-link-wrapper{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+.gallery-link-wrapper:hover{
+  text-decoration:none;
+  color:inherit;
+}
+
+.explore-gallery-section{
+  cursor:pointer;
+}
+/* DESKTOP GALLERY FIX */
+.explore-gallery{
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 16px;
+}
+
+/* main items */
+.eg-item{
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* left tall image */
+.eg-item.spancol{
+  grid-row: span 2;
+}
+
+/* top wide image */
+.eg-item.span2{
+  grid-column: span 2;
+}
+
+/* images */
+.eg-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .45s ease;
+}
+
+.eg-item:hover img{
+  transform:scale(1.05);
+}
+
+/* keep section neat */
+.explore-gallery-section{
+  padding: 0 20px;
+}
+
+/* tablet */
+@media(max-width:1024px){
+  .explore-gallery{
+    max-width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 220px;
+  }
+
+  .eg-item.spancol,
+  .eg-item.span2{
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* mobile */
+@media(max-width:768px){
+  .explore-gallery{
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+  }
+
+  .eg-item{
+    height:240px;
+  }
+}
 
 
 /*
@@ -1411,6 +1496,147 @@ footer {
     font-size:22px;
   }
 }
+
+.gallery-link-wrapper{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+.explore-gallery-section{
+  position:relative;
+  cursor:pointer;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.explore-gallery-section:hover{
+  transform:scale(1.015);
+  box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+/* Floating prompt */
+.gallery-click-hint{
+  position:absolute;
+  top:18px;
+  right:18px;
+  background:#ff7a00;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:700;
+  box-shadow:0 10px 25px rgba(255,122,0,.35);
+  animation:pulseHint 1.6s infinite;
+  z-index:5;
+}
+
+/* Pulse effect */
+@keyframes pulseHint{
+  0%{transform:scale(1);opacity:1;}
+  50%{transform:scale(1.08);opacity:.9;}
+  100%{transform:scale(1);opacity:1;}
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .gallery-click-hint{
+    font-size:12px;
+    padding:8px 12px;
+    top:12px;
+    right:12px;
+  }
+}
+
+
+/* IMAGE ENTRANCE ANIMATIONS */
+.eg-item{
+  opacity: 0;
+  transform: translateY(40px) scale(.94);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.22,1,.36,1);
+}
+
+/* when visible */
+.eg-item.show{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* stagger each image */
+.eg-item:nth-child(1){ transition-delay: .05s; }
+.eg-item:nth-child(2){ transition-delay: .18s; }
+.eg-item:nth-child(3){ transition-delay: .30s; }
+.eg-item:nth-child(4){ transition-delay: .42s; }
+
+/* hover feel */
+.eg-item:hover{
+  transform: translateY(-6px) scale(1.02);
+}
+
+.eg-item:hover img{
+  transform: scale(1.08);
+}
+
+
+/* Mobile smoother animations */
+.eg-item{
+  opacity:0;
+  transform:translateY(35px) scale(.96);
+  transition:all .8s cubic-bezier(.22,1,.36,1);
+  will-change:transform, opacity;
+}
+
+.eg-item.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+/* Faster on mobile */
+@media(max-width:768px){
+  .eg-item{
+    transition:all .65s ease;
+    transform:translateY(28px) scale(.97);
+  }
+
+  .eg-item.show{
+    transform:translateY(0) scale(1);
+  }
+}
+
+/* MOBILE BUTTON SMALL + CENTERED */
+@media(max-width:768px){
+
+  .gallery-click-hint{
+    position:static !important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:fit-content;
+    margin:10px auto 14px;
+
+    padding:8px 16px;
+    font-size:12px;
+    font-weight:700;
+    line-height:1;
+
+    border-radius:999px;
+    white-space:nowrap;
+
+    box-shadow:0 8px 18px rgba(255,140,0,.18);
+  }
+
+}
+
+@media(max-width:480px){
+
+  .gallery-click-hint{
+    padding:7px 14px;
+    font-size:11px;
+  }
+
+}
 </style>
 </head>
 <body>
@@ -1425,7 +1651,7 @@ footer {
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#books">Books</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="#explore">Explore</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#contact" class="nav-cta">Get Started →</a></li>
@@ -1438,7 +1664,7 @@ footer {
   <a href="#home"    onclick="closeMenu()">Home</a>
   <a href="#about"   onclick="closeMenu()">About</a>
   <a href="#books"   onclick="closeMenu()">Books</a>
-  <a href="gallery.html" onclick="closeMenu()">Gallery</a>
+  <a href="#explore" onclick="closeMenu()">Explore</a>
   <a href="#why"     onclick="closeMenu()">Why Us</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
   <a href="#contact" onclick="closeMenu()" class="cta-mob">Get Started →</a>
@@ -1455,7 +1681,7 @@ footer {
 
     <h1 class="hero-title">
       Where Every Child<br>
-      Learns to Love<br>
+      Learns to <span class="line-gold">Love</span><br>
       <span class="line-blue">Learning</span>
     </h1>
 
@@ -1517,7 +1743,9 @@ footer {
 
     <!-- Real Busy Book Images -->
     <div class="book-slide active">
-      <img src="https://i.ibb.co/9H2zTWnh/Picsart-26-04-24-12-29-53-283.png" alt="Busy Book 1"/>
+
+      
+      <img src="https://i.ibb.co/NnYGyRx5/Picsart-26-04-25-09-32-12-201.jpg" alt="Busy Book 1"/>
     </div>
 
     <div class="book-slide">
@@ -1627,13 +1855,15 @@ footer {
   <div class="book-slider" id="slider-lang">
 
     <!-- Real Images -->
+
+    
+    <div class="book-slide">
+      <img src="https://i.ibb.co/Nn9yhP78/Picsart-26-04-24-12-14-57-546.png" alt="Language Book 2"/>
+    </div>
     <div class="book-slide active">
       <img src="https://i.ibb.co/KpK2qM03/Picsart-26-04-24-12-14-16-050.png" alt="Language Book 1"/>
     </div>
 
-    <div class="book-slide">
-      <img src="https://i.ibb.co/Nn9yhP78/Picsart-26-04-24-12-14-57-546.png" alt="Language Book 2"/>
-    </div>
 
     <div class="book-slide">
       <img src="https://i.ibb.co/cSY6FGg7/image.jpg" alt="Language Book 3"/>
@@ -1729,41 +1959,57 @@ footer {
       <div class="spb-stat"><strong>100%</strong><span>Parent Approved</span></div>
     </div>
 
-   <!-- Gallery -->
-<div class="explore-gallery-section reveal">
-  <div class="eg-header">
-    <h3>Learning Moments Gallery</h3>
-    <p>A glimpse into the joy our books create every single day</p>
-  </div>
 
-  <div class="explore-gallery">
-
-    <!-- Large Vertical -->
-    <div class="eg-item spancol">
-      <img src="https://i.ibb.co/5gLzWcjs/pic1.jpg" alt="Learning moment"/>
-      <div class="eg-item-overlay"></div>
-    </div>
-
-    <!-- Wide Main -->
-    <div class="eg-item span2">
-      <img src="https://i.ibb.co/7Jx7SFrD/pc2.jpg" alt="Learning moment"/>
-      <div class="eg-item-overlay"></div>
-    </div>
-
-    <!-- Small Card -->
-    <div class="eg-item">
-      <img src="https://i.ibb.co/Z6yY5ytq/pic3.jpg" alt="Learning moment"/>
-      <div class="eg-item-overlay"></div>
-    </div>
-
-    <!-- Repeat Best Image for balance -->
-    <div class="eg-item">
-      <img src="https://i.ibb.co/7Jx7SFrD/pc2.jpg" alt="Learning moment"/>
-      <div class="eg-item-overlay"></div>
-    </div>
-
-  </div>
+<!-- Gallery -->
 </div>
+
+<a href="gallery.html" class="gallery-link-wrapper">
+  <div class="explore-gallery-section reveal">
+
+    <!-- Click Prompt -->
+    <div class="gallery-click-hint">
+      View Full Gallery →
+    </div>
+
+    <div class="eg-header">
+      <h3>Learning Moments Gallery</h3>
+      <p>A glimpse into the joy our books create every single day</p>
+    </div>
+
+    <div class="explore-gallery">
+
+      <!-- Large Vertical -->
+      <div class="eg-item spancol">
+        <img src="https://i.ibb.co/5gLzWcjs/pic1.jpg" alt="Learning moment">
+        <div class="eg-item-overlay"></div>
+      </div>
+
+      <!-- Wide Main -->
+      <div class="eg-item span2">
+        <img src="https://i.ibb.co/7Jx7SFrD/pc2.jpg" alt="Learning moment">
+        <div class="eg-item-overlay"></div>
+      </div>
+
+      <!-- Small Card -->
+      <div class="eg-item">
+        <img src="https://i.ibb.co/Z6yY5ytq/pic3.jpg" alt="Learning moment">
+        <div class="eg-item-overlay"></div>
+      </div>
+
+      <!-- Extra Image -->
+      <div class="eg-item">
+        <img src="https://i.ibb.co/7Jx7SFrD/pc2.jpg" alt="Learning moment">
+        <div class="eg-item-overlay"></div>
+      </div>
+
+    </div>
+
+  </div>
+</a>
+
+
+
+
 
     <!-- Testimonials -->
     <div class="explore-testimonials reveal">
@@ -2177,6 +2423,7 @@ function typeLine(el, text, speed = 45, callback){
   }, speed);
 }
 
+
 function startTyping(){
   if(current >= typingData.length) return;
 
@@ -2192,6 +2439,25 @@ function startTyping(){
 window.addEventListener("load", () => {
   setTimeout(startTyping, 500);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const galleryItems = document.querySelectorAll(".eg-item");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: "0px 0px -40px 0px"
+  });
+
+  galleryItems.forEach(item => observer.observe(item));
+});
+
 
 </script>
 <!-- WhatsApp Floating Button -->
