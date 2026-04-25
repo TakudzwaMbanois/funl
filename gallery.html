@@ -514,6 +514,100 @@ footer {
   .trust-stats { flex-direction: column; }
   .video-card { flex: 0 0 280px; }
 }
+
+  /* ===== MOBILE WHITE SPACE / SIDE SHIFT FIX ===== */
+
+/* stop horizontal movement everywhere */
+html, body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+/* every section locked to screen width */
+section,
+div,
+main,
+nav,
+footer{
+  max-width:100%;
+}
+
+/* images + videos never overflow */
+img,
+video,
+iframe{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* LIGHTBOX / OPEN IMAGE FIX */
+.lightbox{
+  padding:14px;
+  overflow:hidden;
+}
+
+.lightbox-img{
+  width:auto;
+  max-width:100%;
+  max-height:82vh;
+  margin:auto;
+  object-fit:contain;
+  border-radius:16px;
+}
+
+/* MOBILE ONLY */
+@media(max-width:768px){
+
+  body{
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  .gallery-masonry{
+    grid-template-columns:1fr !important;
+    gap:16px;
+    padding:0;
+  }
+
+  .gallery-item,
+  .gallery-item.landscape,
+  .gallery-item.portrait{
+    grid-column:span 1 !important;
+    grid-row:span 1 !important;
+    width:100%;
+  }
+
+  .gallery-item img{
+    width:100%;
+    height:auto;
+    aspect-ratio:4/5;
+    object-fit:cover;
+  }
+
+  /* modal image perfectly centered */
+  .lightbox{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .close-light{
+    top:12px;
+    right:16px;
+    font-size:34px;
+  }
+
+  /* video modal no side push */
+  .video-modal-container{
+    width:94%;
+    max-width:94%;
+    margin:auto;
+  }
+
+}
+  
 </style>
 </head>
 <body>
