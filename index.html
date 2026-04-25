@@ -2017,6 +2017,31 @@ footer {
   color:#2563eb !important;
   opacity:1 !important;
 }
+
+  /* MOBILE FIX - CENTER QUALITY CARD */
+
+@media(max-width:768px){
+
+  .social-proof-bar{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:14px !important;
+    justify-items:center;
+  }
+
+  .spb-stat{
+    width:100%;
+    max-width:260px;
+  }
+
+  /* third item = Quality */
+  .spb-stat:nth-child(3){
+    grid-column:1 / span 2;
+    justify-self:center;
+    max-width:260px;
+  }
+
+}
 </style>
 </head>
 <body>
