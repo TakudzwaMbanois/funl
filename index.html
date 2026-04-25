@@ -2042,6 +2042,85 @@ footer {
   }
 
 }
+  hero-zim-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  margin:18px 0 22px;
+  padding:10px 16px;
+
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:999px;
+
+  box-shadow:0 10px 24px rgba(15,23,42,.06);
+  backdrop-filter:blur(8px);
+}
+
+.hero-zim-badge img{
+  width:28px;
+  height:28px;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.hero-zim-badge span{
+  font-size:13px;
+  font-weight:700;
+  color:#0f172a;
+  letter-spacing:.2px;
+}
+
+/* mobile */
+@media(max-width:768px){
+  .hero-zim-badge{
+    margin:16px auto 20px;
+    padding:8px 14px;
+  }
+
+  .hero-zim-badge img{
+    width:24px;
+    height:24px;
+  }
+
+  .hero-zim-badge span{
+    font-size:12px;
+  }
+}
+
+/* FLAG NEXT TO HERO EYEBROW */
+
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.hero-flag{
+  width:28px;
+  height:28px;
+  object-fit:cover;
+  border-radius:50%;
+  box-shadow:0 6px 14px rgba(0,0,0,.10);
+  flex-shrink:0;
+}
+
+/* mobile */
+@media(max-width:768px){
+
+  .hero-eyebrow{
+    justify-content:center;
+    gap:8px;
+  }
+
+  .hero-flag{
+    width:24px;
+    height:24px;
+  }
+
+}
 </style>
 </head>
 <body>
