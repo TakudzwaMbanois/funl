@@ -95,130 +95,115 @@ em.hb { font-style: normal; color: var(--blue); }
 
 /* ─── NAVBAR ─────────────────────────────────────────────────── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 990;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 990;
+
   padding: 0 5%;
   height: 70px;
-  display: flex; align-items: center; justify-content: space-between;
-  background: rgba(218, 207, 139, 0.78);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 1px solid rgba(201,145,58,0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* Your brand yellow */
+  background: rgba(253, 219, 53, 0.9);
+
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+  border-bottom: 1px solid rgba(253, 219, 53, 0.5);
+
   transition: box-shadow 0.3s;
 }
-nav.scrolled { box-shadow: 0 4px 32px rgba(26,31,46,0.08); }
 
+nav.scrolled {
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+}
+
+/* Logo */
 .nav-logo {
   font-family: var(--font-serif);
   font-weight: 700;
   font-size: 19px;
-  color: var(--text);
+
+  color: #1F2937; /* charcoal */
+
   text-decoration: none;
-  display: flex; align-items: center; gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+
+/* Keep logo mark vibrant */
 .nav-logo-mark {
-  width: 34px; height: 34px;
-  background: linear-gradient(135deg, var(--gold), #E8A84A);
+  width: 34px;
+  height: 34px;
+
+  background: linear-gradient(135deg, #F4B400, #E8A84A);
+
   border-radius: 9px;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-size: 16px;
-  box-shadow: 0 4px 12px rgba(201,145,58,0.35);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
   flex-shrink: 0;
 }
-.nav-logo span { color: var(--gold); }
 
-.nav-links {
-  display: flex; align-items: center; gap: 2px; list-style: none;
+.nav-logo span {
+  color: #B88A00; /* darker gold accent */
 }
+
+/* Links */
 .nav-links a {
-  font-size: 14px; font-weight: 500; color: var(--text-mid);
-  text-decoration: none; padding: 8px 14px; border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #1F2937; /* charcoal */
+
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+
   transition: all 0.2s;
 }
-.nav-links a:hover { color: var(--gold); background: var(--gold-pale); }
+
+.nav-links a:hover {
+  background: rgba(0,0,0,0.06);
+  color: #000;
+}
+
+/* CTA button */
 .nav-links .nav-cta {
-  background: var(--text);
-  color: var(--ivory) !important;
-  padding: 9px 20px; border-radius: 50px;
-  font-weight: 600; margin-left: 6px;
+  background: #1F2937;
+  color: #fff !important;
+
+  padding: 9px 20px;
+  border-radius: 50px;
+
+  font-weight: 600;
+  margin-left: 6px;
+
   transition: all 0.25s !important;
 }
+
 .nav-links .nav-cta:hover {
-  background: var(--gold) !important;
-  color: #fff !important;
+  background: #000 !important;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(201,145,58,0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
+/* Hamburger */
 .hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  cursor: pointer; padding: 8px; border-radius: 10px;
-  background: var(--gold-pale); border: 1px solid rgba(201,145,58,0.2);
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
 }
+
 .hamburger span {
-  display: block; width: 20px; height: 2px;
-  background: var(--blue-sky); border-radius: 4px;
-  transition: all 0.3s;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.mobile-menu{
-  display:none;
-  position:fixed;
-  top:70px;
-  left:0;
-  right:0;
-  z-index:989;
-
-  /* Liquid Glass Background */
-  background:linear-gradient(
-    135deg,
-    rgba(255,255,255,0.16),
-    rgba(255,255,255,0.08),
-    rgba(80,140,255,0.10)
-  );
-
-  backdrop-filter:blur(28px) saturate(180%);
-  -webkit-backdrop-filter:blur(28px) saturate(180%);
-
-  /* Glass Border */
-  border-bottom:1px solid rgba(255,255,255,0.18);
-  border-top:1px solid rgba(255,255,255,0.10);
-
-  /* Premium Depth */
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.14),
-    inset 0 1px 0 rgba(255,255,255,0.18),
-    inset 0 -1px 0 rgba(255,255,255,0.06);
-
-  padding:20px 5% 28px;
-
-  transform:translateY(-12px) scale(0.98);
-  opacity:0;
-  pointer-events:none;
-
-  transition:
-    opacity .35s ease,
-    transform .35s cubic-bezier(0.4,0,0.2,1);
-}
-
-/* Open State */
-.mobile-menu.open{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0) scale(1);
-}
-.mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: all; }
-.mobile-menu a {
-  display: block; padding: 13px 16px; font-size: 15px; font-weight: 500;
-  color: var(--text); text-decoration: none; border-radius: 10px;
-  transition: all 0.2s; margin-bottom: 3px;
-}
-.mobile-menu a:hover { background: var(--gold-pale); color: var(--gold); }
-.mobile-menu .cta-mob {
-  background: var(--text); color: var(--ivory) !important;
-  text-align: center; margin-top: 10px; font-weight: 700;
-  border-radius: 50px;
+  background: #1F2937;
 }
 /* ─── HERO PREMIUM SKY GLASS UPGRADE ───────────────────────── */
 
